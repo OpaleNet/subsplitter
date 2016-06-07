@@ -1,0 +1,17 @@
+{
+    "working-directory": "/tmp/dflydev-git-subsplit-github-webhook-working",
+    "redis": {
+        'scheme': 'tcp',
+        'host': '127.0.0.1',
+        'port': 6379
+    },
+    "projects": {
+        "sculpin": {
+            "url": "https://github.com/sculpin/sculpin",
+            "repository-url": "ssh git",
+            "splits": [
+                "src/Sculpin/Core:git@github.com:sculpin/core.git"
+            ]
+        }
+    }
+}

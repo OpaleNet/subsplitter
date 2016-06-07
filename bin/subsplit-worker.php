@@ -10,7 +10,7 @@ $config = json_decode(file_get_contents($configFilename), true);
 
 $start = time();
 
-$redis = new Predis\Client(array_replace($config['redis'], []));
+$redis = new Predis\Client(array_replace($config['redis'], ['read_write_timeout' => 0]));
 
 while ($body = $redis->brpoplpush('dflydev-git-subsplit:incoming', 'dflydev-git-subsplit:processing', 0)) {
     $data = json_decode($body, true);
